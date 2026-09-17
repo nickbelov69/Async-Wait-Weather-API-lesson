@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather app</title>
+</head>
+<body>
+<div id="weather-bg" class="start-screen">
+    <div class="weather-layer clear-day"></div>
+    <div class="weather-layer clear-night"></div>
+    <div class="weather-layer partly-cloudy-day"></div>
+    <div class="weather-layer partly-cloudy-night"></div>
+    <div class="weather-layer cloudy"></div>
+    <div class="weather-layer rain"></div>
+    <div class="weather-layer snow"></div>
+    <div class="weather-layer fog"></div>
+    <div class="weather-layer wind"></div>
+    <div class="sun"></div>
+</div>
+    <main>
+        <p>Let's look for a weather?</p>
+        <div id="controls">
+            <form>
+                <input id="input" type="text" placeholder="Enter a city">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+            <div id="weather">
+                <div id="mainInfo">
+                    <h1 id="location"></h1>
+                    <p id="temperature"></p>
+                    <p id="condition"></p>
+                    <p id="feelslike"></p>
+                    <p id="icon" alt=""></p>
+                </div>
+                <div id="detailsInfo">
+                        <div>
+                            <p>Humidity</p>
+                            <p id="humidity"></p>
+                        </div>
+                        <div>
+                            <p>Windspeed</p>
+                            <p id="windspeed"></p>
+                        </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="unit-toggle">
+                    <span class="slider"></span>
+                    <span>Celsius</span>
+                </label>
+            </div>
+    </main>
+</body>
+</html>
