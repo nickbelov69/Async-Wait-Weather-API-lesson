@@ -21,14 +21,61 @@
     <div class="sun"></div>
 </div>
     <main>
-        <p>Let's look for a weather?</p>
-        <div id="controls">
-            <form>
-                <input id="input" type="text" placeholder="Enter a city">
-                <button type="submit">Submit</button>
-            </form>
+        <p id="looktext">Let's look for a weather?</p>
+        <div class="top-controls">
+            <div id="background-controls" hidden>
+                <p>Take a look at other backgrounds</p>
+
+                <button type="button" data-background="clear-day">
+                    Clear day
+                </button>
+
+                <button type="button" data-background="clear-night">
+                    Clear night
+                </button>
+                <button type="button" data-background="partly-cloudy-day">
+                    Partly cloudy day
+                </button>
+                <button type="button" data-background="partly-cloudy-night">
+                    Partly cloudy night
+                </button>
+                <button type="button" data-background="cloudy">
+                    Cloudy
+                </button>
+                <button type="button" data-background="rain">
+                    Rain
+                </button>
+                <button type="button" data-background="snow">
+                    Snow
+                </button>
+                <button type="button" data-background="fog">
+                    Fog
+                </button>
+                <button type="button" data-background="wind">
+                    Wind
+                </button>
+            </div>
+
+            <div id="controls">
+                <form>
+                    <div class="search-box">
+                        <input
+                                id="input"
+                                type="text"
+                                placeholder="Enter a city"
+                                autocomplete="off"
+                        >
+
+                        <div id="suggestions"></div>
+                    </div>
+
+                    <button type="submit">Submit</button>
+                </form>
+
+            </div>
         </div>
-            <div id="weather">
+
+        <div id="weather">
                 <div id="mainInfo">
                     <h1 id="location"></h1>
                     <p id="temperature"></p>
@@ -52,6 +99,16 @@
                     <span>Celsius</span>
                 </label>
             </div>
+        <p id="gitlink">
+            GitHub:
+            <a
+                    href="https://github.com/nickbelov69"
+                    target="_blank"
+                    rel="noopener noreferrer"
+            >
+                @nickbelov69
+            </a>
+        </p>
     </main>
 </body>
 </html>

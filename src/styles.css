@@ -52,21 +52,37 @@ main {
 /* ===================================
    Панель управления
 =================================== */
-
 #controls {
     display: flex;
+    flex-shrink: 0;
     gap: 10px;
 
     padding: 10px;
     border-radius: 20px;
 
-    background: rgba(0, 95, 115, 0.9);
+    background: rgba(0, 18, 25, 0.42);
+
+    border-radius: 24px;
 
     box-shadow:
-            0 10px 30px rgba(0, 0, 0, 0.15);
+            0 20px 45px rgba(0, 0, 0, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
+
+.top-controls {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+
 
 #controls form {
     display: flex;
@@ -89,6 +105,8 @@ input {
     transition:
             background 0.4s ease,
             box-shadow 0.4s ease;
+
+
 }
 
 input:hover,
@@ -97,7 +115,159 @@ input:focus {
 
     box-shadow:
             0 0 0 3px rgba(148, 210, 189, 0.25);
+    backdrop-filter: blur(5px) saturate(140%);
 }
+
+#background-controls {
+    position: absolute;
+    right: calc(50% + 550px);
+    top: 30px;
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    width: 300px;
+    padding: 20px 18px;
+
+    color: #e9d8a6;
+    text-align: center;
+
+    background: rgba(0, 18, 25, 0.42);
+
+    border-radius: 24px;
+
+    box-shadow:
+            0 20px 45px rgba(0, 0, 0, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(5px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.search-box {
+    position: relative;
+}
+
+#suggestions {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    display: none;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+
+    background: rgba(0, 18, 25, 0.88);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+#suggestions.visible {
+    display: block;
+}
+
+.suggestion {
+    width: 100%;
+    padding: 12px 14px;
+
+    color: #e9d8a6;
+    text-align: left;
+
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+
+    cursor: pointer;
+}
+
+.suggestion:hover,
+.suggestion:focus {
+    color: #001219;
+    background: #94d2bd;
+    transform: none;
+}
+
+
+
+
+.weather-prompt {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+#background-controls[hidden] {
+    display: none;
+}
+
+#background-controls button {
+    width: 220px;
+    padding: 10px 14px;
+
+    color: #001219;
+    background: rgba(10, 147, 150, 0.86);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 5px 12px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    transition:
+            background 0.25s ease,
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+}
+
+#background-controls::before {
+    content: "";
+
+    width: 55px;
+    height: 4px;
+    margin-bottom: 4px;
+
+    background: #94d2bd;
+    box-shadow: 0 0 14px rgba(148, 210, 189, 0.7);
+}
+
+
+#background-controls button:hover {
+    background: #94d2bd;
+    transform: translateY(-2px);
+
+    box-shadow:
+            0 8px 18px rgba(0, 0, 0, 0.25),
+            0 0 0 3px rgba(148, 210, 189, 0.18);
+}
+
+#background-controls button:active {
+    transform: translateY(0);
+}
+
+
+#background-controls p {
+    margin: 0 0 8px;
+
+    color: #fef3c7;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+
+
 
 button {
     padding: 10px 16px;
@@ -125,20 +295,23 @@ button:hover {
 
 #weather {
     width: min(90%, 500px);
-
     padding: 30px;
     border-radius: 24px;
 
     text-align: center;
 
-    background: rgba(0, 95, 115, 0.9);
+    background: rgba(0, 18, 25, 0.42);
+
+    border-radius: 24px;
 
     box-shadow:
-            0 20px 50px rgba(0, 0, 0, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            0 20px 45px rgba(0, 0, 0, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(5px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
+
 
 #mainInfo {
     display: flex;
@@ -401,7 +574,6 @@ button:hover {
     animation:
             gradientAngle 20s linear infinite alternate;
 }
-
 
 
 /* ===================================
@@ -1628,4 +1800,60 @@ body {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
+}
+
+#gitlink {
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 8px 0 0;
+
+    color: rgba(233, 216, 166, 0.75);
+    font-size: 0.9rem;
+
+}
+
+#gitlink a {
+    position: relative;
+
+    color: #94d2bd;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+            color 0.25s ease,
+            transform 0.25s ease;
+}
+
+
+
+#gitlink a:hover {
+    color: #e9d8a6;
+    transform: translateY(-1px);
+    background: rgba(0, 18, 25, 0.42);
+
+    border-radius: 24px;
+    padding: 0 10px 0 10px;
+
+    box-shadow:
+            0 20px 45px rgba(0, 0, 0, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(5px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+
+
+#gitlink a:focus-visible {
+    outline: 2px solid #94d2bd;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+p {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1)
 }
